@@ -32,7 +32,7 @@ export const Header = ({ searchQuery, setSearchQuery }: Props) => {
     return (
         <div className='Header'>
             <div className="Inside">
-                <div className="Header__inside">
+                <div className="Ayana__Kanat">
                     <div className="left__header">
                         <div className="header__search">
                             <Search />
