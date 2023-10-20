@@ -2,26 +2,683 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.container {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.Inside {
+  padding: 0 16px;
+}
+
+.Modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.swiper {
+  display: flex;
+}
+
+.swiper-slide-prev img {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-20deg);
+  transition: 0.6s ease-in-out;
+}
+
+.swiper-slide-next img {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-20deg);
+  transition: 0.6s ease-in-out;
+}
+
+.swiper-slide .image__root {
+  display: flex;
+  align-items: center;
+}
+
+
+.swiper-slide-active img {
+  width: 220px;
+  height: 220px;
+  transform: rotate(0deg);
+  transition: 0.8s ease-in-out;
+}
+
+.food__image {
+  min-height: 240px;
+}
+
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide-active {
+  display: flex;
+  justify-content: center;
+}
+
+
+@keyframes describe {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.6);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(0.8);
+
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+.Modal__content {
+  max-height: 600px;
+  overflow-y: scroll;
+  padding: 0 36px 20px;
+  background-image: url('../app/assets/png/BG.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+  border: 1px solid #F49D37;
+  animation: content 0.8s ease-in-out;
+}
+
+.subTitle {
+  animation: content 0.4s ease-in;
+}
+
+
+@keyframes content {
+  0% {
+    opacity: 0.2;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.Modal__title {
+  color: #F49D37;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Rubik Dirt, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.load {
+  color: #F49D37;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Rubik Dirt, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.Modal__image {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.Modal__image img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+.loader__black {
+  background: black;
+  height: 100vh;
+  max-width: 480px;
+}
+
+@keyframes blackBg {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+
+}
+
+.Main__page {
+  background-image: url('./assets/png/BG.png');
+  max-width: 480px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 50px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.home__page__load {
+  background-image: url('./assets/png/BG.png');
+  max-width: 480px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: load 2.8s ease-in;
+}
+
+@keyframes load {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+.loader__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Header {
+  padding: 20px 0 0 0;
+  animation: head 0.7s ease-in;
+}
+
+.subCategory__line {
+  position: relative;
+}
+
+@keyframes head {
+  from {
+    transform: translateY(-100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+
+}
+
+.Header__inside {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left__header .header__search {
+  width: 205px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.left__header .header__search input {
+  border: none;
+  background: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.right__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__lang {
+  gap: 8px;
+  display: flex;
+  color: #FFF;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.14px;
+}
+
+.header__language.active {
+  color: #F49D37;
+}
+
+.Main__inside {
+  animation: main 0.7s ease-in;
+}
+
+@keyframes main {
+  0% {
+    opacity: 0.2;
+  }
+
+  20% {
+    opacity: 0.3;
+    transform: translateY(100%);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: translateY(50%);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateY(20%);
+
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+}
+
+.card__foods__inside {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.category ul {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  overflow-x: scroll;
+  gap: 32px;
+  padding: 12px 0 12px 0;
+}
+
+
+.category ul li {
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: Geologica;
+}
+
+.category ul li.cactegory__li {
+  color: #FFF;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.16px;
+}
+
+.category ul li.cactegory__li.active {
+  color: #F49D37;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.2px;
+  animation: activate 0.6s ease-in-out;
+}
+
+@keyframes activate {
+  0% {
+    opacity: 0.2;
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  60% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.subCategory__title {
+  color: #F49D37;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Rubik Dirt;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  /* animation: subtitle 1.4s ease-in-out; */
+}
+
+@keyframes subtitle {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  20% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+
+  40% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+
+  }
+}
+
+.subCategory__food:not(:last-child) {
+  margin-bottom: 80px;
+}
+
+.food__title.active {
+  animation: subtitle 0.8s ease-in-out;
+}
+
+.food__title {
+  margin-top: 16px;
+  color: #FFF;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.24px;
+}
+
+
+.image__root {
+  margin-top: 20px;
+}
+
+
+.image__root img {
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.40);
+}
+
+.food__description {
+  margin-top: 16px;
+  color: #FFF;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: 0.16px;
+}
+
+.food__more {
+  cursor: pointer;
+  color: #F49D37;
+  text-align: right;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Geologica;
+  font-feature-settings: 'dlig' on;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: 0.16px;
+  text-decoration-line: underline;
+}
+
+.food__price {
+  margin-top: 32px;
+  color: #EDEDED;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.Card__inside {
+  animation: card 0.3s ease-in-out;
+}
+
+@keyframes card {
+  from {
+    opacity: 0.3;
+    transform: translateX(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+.Card__inside {
+  padding: 16px 0 0 0;
+}
+
+.card__backs {
+  gap: 12px;
+  color: #FFF;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.2px;
+}
+
+
+.right__take button {
+  padding: 12px 32px;
+  border-radius: 4px;
+  border: 1px solid #F49D37;
+  color: #F49D37;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.right__take button.btn {
+  background-color: #F49D37;
+  color: white;
+}
+
+.counter__take {
+  color: #EDEDED;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.left__card_food img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.clear__card {
+  color: #F49D37;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Rubik Dirt, sans-serif;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.clear__btn {
+  padding: 12px 32px;
+  border-radius: 4px;
+  background: #EDEDED;
+  color: #252525;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: 'dlig' on;
+  font-family: Geologica;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.close__modal svg path {
+  stroke: white;
+}
+
+
+.Clear__toStorage {
+  display: flex;
+  justify-content: center;
+}
+
+.leftFood__title {
+  font-family: Geologica;
+}
+
+.Clear__toStorage button {
+  padding: 10px 32px;
+  border-radius: 4px;
+  background: #EDEDED;
+  font-family: Geologica;
+}
+
+
+@media(max-width:470px) {
+  .Modal__content {
+    width: 400px;
+  }
+}
+
+@media(max-width:440px) {
+  .swiper-slide-active img {
+    height: 200px;
+  }
+}
+
+
+
+@media(max-width:425px) {
+  .Modal__content {
+    width: auto;
+  }
+}
+
+
+@media(max-width:410px) {
+  .swiper-slide-active img {
+    height: 180px;
+  }
+
+  .Modal__image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+
+
+
+  .food__image {
+    min-height: 200px;
+  }
+
+}
+
+@media(max-width:376px) {
+  .swiper-slide-active img {
+    height: 165px;
+  }
+
+
+  .swiper-slide-prev img {
+    width: 100px;
+    height: 100px;
+    transform: rotate(-20deg);
+    transition: 0.6s ease-in-out;
+  }
+
+  .swiper-slide-next img {
+    width: 100px;
+    height: 100px;
+    transform: rotate(-20deg);
+    transition: 0.6s ease-in-out;
+  }
+}
+
+
+@media(max-width:350px) {
+  .swiper-slide-active img {
+    height: 150px;
+  }
+
 }
