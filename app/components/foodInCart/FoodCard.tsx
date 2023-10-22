@@ -1,4 +1,5 @@
 import { Deletefood, LeftArrow, RightArrow } from '@/app/assets/Svg'
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 type Props = {
@@ -33,7 +34,7 @@ export const FoodCard = ({ item, foods, setFoods }: Props) => {
     <div className="Inside">
       <div className='cardFood flex gap-[50px] mt-[30px] relative'>
         <div className="left__card_food">
-          <img src={item.img} alt="" />
+          <Image width='100' height='100' src={item.img} alt="" />
         </div>
         <div className="left__card_food">
           <div className="leftFood__title text-[24px] text-white">

@@ -32,15 +32,15 @@
 }
 
 .swiper-slide-prev img {
-  width: 120px;
-  height: 120px;
+  width: 120px !important;
+  height: 120px !important;
   transform: rotate(-20deg);
   transition: 0.6s ease-in-out;
 }
 
 .swiper-slide-next img {
-  width: 120px;
-  height: 120px;
+  width: 120px !important;
+  height: 120px !important;
   transform: rotate(-20deg);
   transition: 0.6s ease-in-out;
 }
@@ -52,8 +52,8 @@
 
 
 .swiper-slide-active img {
-  width: 220px;
-  height: 220px;
+  width: 220px !important;
+  height: 220px !important;
   transform: rotate(0deg);
   transition: 0.8s ease-in-out;
 }
@@ -622,7 +622,7 @@
 
 @media(max-width:440px) {
   .swiper-slide-active img {
-    height: 200px;
+    height: 200px !important;
   }
 }
 
@@ -637,39 +637,39 @@
 
 @media(max-width:410px) {
   .swiper-slide-active img {
-    height: 180px;
+    height: 180px !important;
   }
 
   .Modal__image img {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 200px !important;
+    height: 200px !important;
   }
 
 
 
   .food__image {
-    min-height: 200px;
+    min-height: 200px !important;
   }
 
 }
 
 @media(max-width:376px) {
   .swiper-slide-active img {
-    height: 165px;
+    height: 165px !important;
   }
 
 
   .swiper-slide-prev img {
-    width: 100px;
-    height: 100px;
+    width: 100px !important;
+    height: 100px !important;
     transform: rotate(-20deg);
     transition: 0.6s ease-in-out;
   }
 
   .swiper-slide-next img {
-    width: 100px;
-    height: 100px;
+    width: 100px !important;
+    height: 100px !important;
     transform: rotate(-20deg);
     transition: 0.6s ease-in-out;
   }
@@ -678,7 +678,7 @@
 
 @media(max-width:350px) {
   .swiper-slide-active img {
-    height: 150px;
+    height: 150px !important;
   }
 
 }

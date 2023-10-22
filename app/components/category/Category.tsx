@@ -11,9 +11,6 @@ type Props = {
 
 
 export const Category = ({ value, category, onClickCategory }: Props) => {
-
-
-    console.log(category)
     return (
         <div className='container'>
             <div className="category">

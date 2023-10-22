@@ -16,7 +16,8 @@ i18n
           sweet:"Смачненьке",
           search:"Поиск",
           back:"Назад",
-
+          food_describe:"описание",
+          sostav:"состав",
         },
       },
       kg: {
@@ -30,6 +31,8 @@ i18n
           sweet:"Даамдуу",
           search:"Издөө",
           back:"Артка",
+          food_describe:"баяндоо",
+          sostav:"курамы",
 
         },
       },

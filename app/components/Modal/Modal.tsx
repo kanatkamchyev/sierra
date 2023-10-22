@@ -1,14 +1,18 @@
 import { Deletefood } from '@/app/assets/Svg'
+import { t } from 'i18next'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 
 interface Props {
     food: any,
     active: any,
-    setActive: any
+    setActive: any,
+    getSostav:any,
+    getDescription:any
 }
 
-export const Modal = ({ food, active, setActive }: Props) => {
+export const Modal = ({ food, getDescription, active, setActive,getSostav }: Props) => {
 
     useEffect(() => {
         if(active){
@@ -33,17 +37,17 @@ export const Modal = ({ food, active, setActive }: Props) => {
                                 }
                             </div>
                             <div className="Modal__image">
-                                <img src={food.img} alt="" />
+                                <Image width='200' height='200' src={food.img} alt="" />
                             </div>
                             <div className="Modal__describe text-white text-[16px] mt-[16px]">
-                                описание:
+                                {t("food_describe")}:
                             </div>
-                            <div className="Modal__describe text-white text-[16px] mt-[8px] pl-[6px]" dangerouslySetInnerHTML={{ __html: food.description }}>
+                            <div className="Modal__describe text-white text-[16px] mt-[8px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getDescription(food) }}>
                             </div>
                             <div className="Modal__ingredients text-white text-[16px] mt-[16px]">
-                                Состав:
+                                {t('sostav')}:
                             </div>
-                            <div className="Modal__ingredients text-white text-[16px] pl-[6px]" dangerouslySetInnerHTML={{ __html: food.sostav }}>
+                            <div className="Modal__ingredients text-white text-[16px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getSostav(food) }}>
 
                             </div>
                         </div>

@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Modal } from '../Modal/Modal'
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 import i18n from '@/app/i18';
 
 
@@ -23,7 +24,9 @@ type Mores = {
     description_ru: string,
     description_ky: string,
     price: number,
-    sostav: string
+    sostav: string,
+    sostav_ky:string,
+    sostav_ru:string,
 }
 
 
@@ -52,7 +55,6 @@ export const Food = ({ item }: Props) => {
 
     const { t, i18n } = useTranslation()
 
-    console.log(i18n)
     const increaseCount = () => {
         setCount(count + 1);
         setAddedToCart(false)
@@ -92,6 +94,8 @@ export const Food = ({ item }: Props) => {
         description_ky: '',
         price: 0,
         sostav: '',
+        sostav_ky: '',
+        sostav_ru: '',
     });
 
     useEffect(() => {
@@ -106,6 +110,8 @@ export const Food = ({ item }: Props) => {
                 description_ky: initialFood.description_ky,
                 price: initialFood.price,
                 sostav: initialFood.ingredients,
+                sostav_ky: initialFood.ingredients_ky,
+                sostav_ru: initialFood.ingredients_ru,
             });
         }
     }, [item.foods]);
@@ -120,13 +126,23 @@ export const Food = ({ item }: Props) => {
         }
     }
 
+     const getSostav = (obj: any) => {
+        switch (i18n.language) {
+            case 'kg':
+                return obj?.sostav_ky ? obj?.sostav_ky : obj?.sostav_ru;
+                break;
+            default:
+                return obj?.sostav_ru
+        }
+    }
+
 
     return (
         <div className='food'>
             <div className="container">
                 {
                     active ?
-                        <Modal food={currentImage} active={active} setActive={setActive} /> :
+                        <Modal getDescription={getDescription} getSostav={getSostav} food={currentImage} active={active} setActive={setActive} /> :
                         null
                 }
                 <div className="food__inside">
@@ -135,7 +151,6 @@ export const Food = ({ item }: Props) => {
             </div>
             <div className="food__image">
                 <Swiper
-                    slidesPerView={3}
                     slidesPerView={2}
                     spaceBetween={40}
                     centeredSlides={true}
@@ -154,6 +169,8 @@ export const Food = ({ item }: Props) => {
                                 description_ky: activeFood.description_ky,
                                 price: activeFood.price,
                                 sostav: activeFood.ingredients,
+                                sostav_ru: activeFood.ingredients_ru,
+                                sostav_ky: activeFood.ingredients_ky,
                             });
                         }
                     }}
@@ -163,8 +180,8 @@ export const Food = ({ item }: Props) => {
                         <SwiperSlide key={food.id}>
                             {food.photos.map((image: any) => (
                                 <div className="image__root flex justify-center" key={image.id}>
-                                    <img src={image.photo} alt="" />
-                                </div>
+                                    <Image layout="responsive"  width={120} height={120} src={image.photo} alt="" />
+                                </div>  
                             ))}
                         </SwiperSlide>
                     ))}
@@ -176,7 +193,7 @@ export const Food = ({ item }: Props) => {
                     <Yellow />
                 </div>
                 <div className="Inside">
-}
+
                     <div className="food__description mt-[16px]" dangerouslySetInnerHTML={{ __html: getDescription(currentImage) }} >
                     </div>
                     <div className="food__more mt-[10px]" onClick={() => setActive(true)}>

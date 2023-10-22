@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import '../globals.css'
-import { Arrow } from '../assets/Svg'
-import { Language } from '../components/lang/Language'
+import '../../globals.css'
+import { Arrow } from '../../assets/Svg'
+import { Language } from '../../components/lang/Language'
 import Link from 'next/link'
-import { FoodCard } from '../components/foodInCart/FoodCard'
+import { FoodCard } from '../../components/foodInCart/FoodCard'
 import { useTranslation } from 'react-i18next'
 
 const Card = () => {

@@ -1,14 +1,13 @@
 const withPWA = require('next-pwa')({
     dest: 'public',
-    register:true,
-    skipWaiting:true,
+    register: true,
+    skipWaiting: true,
 })
 
 
-module.exports = withPWA({
-    i18n: {
-        locales: ['ru', 'kg'],
-        defaultLocale: 'ru',
-    }
-})
+module.exports = {
+    images: {
+      domains: ['menu-back.prolabagency.com'],
+    },
+  };
 

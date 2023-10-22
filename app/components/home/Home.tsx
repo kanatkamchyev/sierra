@@ -9,12 +9,11 @@ import axios from 'axios'
 
 type Props = {
   category: any,
-  subCategory: any,
 }
 
 
 
-export const Home = ({ category, subCategory }: Props) => {
+export const Home = ({ category}: Props) => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
