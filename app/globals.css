@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
 
-body{
-  font-family: Geologica;
+@font-face {
+  font-family: 'Geologica';
+  src: url('../app/font/Geologica/Geologica-VariableFont_CRSV\,SHRP\,slnt\,wght.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'RubikDirt';
+  src: url('../app/font/Rubik_Dirt/RubikDirt-Regular.ttf') format('truetype');
+}
+
 
 .container {
   max-width: 480px;
@@ -141,7 +146,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Rubik Dirt, sans-serif;
+  font-family: 'RubikDirt';
   font-size: 48px;
   font-weight: 400;
   line-height: 110%;
@@ -152,7 +157,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Rubik Dirt, sans-serif;
+  font-family: 'RubikDirt';
   font-size: 18px;
   font-weight: 400;
   line-height: 110%;
@@ -344,7 +349,7 @@ body{
 .category ul li {
   white-space: nowrap;
   cursor: pointer;
-  font-family: Geologica;
+  font-family: 'Geologica';
 }
 
 .category ul li.cactegory__li {
@@ -393,7 +398,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Rubik Dirt;
+  font-family: 'RubikDirt';
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
@@ -442,7 +447,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -467,7 +472,7 @@ body{
   color: #FFF;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -480,7 +485,7 @@ body{
   color: #F49D37;
   text-align: right;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-feature-settings: 'dlig' on;
   font-size: 16px;
   font-style: normal;
@@ -496,7 +501,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -530,7 +535,7 @@ body{
   color: #FFF;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -546,7 +551,7 @@ body{
   color: #F49D37;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
@@ -562,7 +567,7 @@ body{
   color: #EDEDED;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-weight: 800;
   line-height: 20px;
   letter-spacing: 0.2px;
@@ -578,7 +583,7 @@ body{
   color: #F49D37;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Rubik Dirt, sans-serif;
+  font-family: 'RubikDirt';
   font-weight: 400;
   line-height: 110%;
 }
@@ -591,7 +596,7 @@ body{
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'dlig' on;
-  font-family: Geologica;
+  font-family: 'Geologica';
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
@@ -609,14 +614,14 @@ body{
 }
 
 .leftFood__title {
-  font-family: Geologica;
+  font-family: 'Geologica';
 }
 
 .Clear__toStorage button {
   padding: 10px 32px;
   border-radius: 4px;
   background: #EDEDED;
-  font-family: Geologica;
+  font-family: 'Geologica';
 }
 
 

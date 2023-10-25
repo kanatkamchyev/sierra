@@ -62,10 +62,10 @@ export const Food = ({ item }: Props) => {
     };
 
     const AddToCard = (food: any) => {
-        let existingFood = JSON.parse(localStorage.getItem('food')) || [];
+        const storedFood = localStorage.getItem('food');
+        let existingFood = storedFood ? JSON.parse(storedFood) : [];
 
         const existingFoodIndex = existingFood.findIndex((item: any) => item.title === food.title);
-
         const updatedFoodData = {
             id: food.id,
             img: food.img,
