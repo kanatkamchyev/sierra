@@ -7,7 +7,7 @@ export const Loader = () => {
     <div className='container'>
       <div className="loader__page">
         <div className="loader__main">
-          <Image src={Logo.src} alt="preloader" />
+          <Image  layout="responsive"  width={120} height={120} src={Logo.src} alt="preloader" />
         </div>
       </div>
     </div>
