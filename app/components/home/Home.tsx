@@ -43,6 +43,8 @@ export const Home = ({ category}: Props) => {
   });
 
 
+  console.log(items)
+
 
   return (
     <div className="container">
