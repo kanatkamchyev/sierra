@@ -25,12 +25,6 @@ export default function HomePage() {
 
   }, [])
 
-  console.log(category)
-
-
-
-
-
   return (
       <Home category={category}/>
   )
