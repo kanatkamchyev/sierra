@@ -21,7 +21,6 @@ export const Home = ({ category}: Props) => {
   const [items, setItems] = useState([])
 
   console.log(categoryId)
-  console.log(category)
 
   useEffect(() => {
     axios.get('https://menu-back.prolabagency.com/api/v1/category/' + categoryId+'/')
