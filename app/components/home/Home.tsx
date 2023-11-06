@@ -34,6 +34,8 @@ export const Home = ({ category}: Props) => {
 
   }, [categoryId])
 
+  console.log(items)
+
   const { subcategories }: any = items
 
   const filteredSubCategory = subcategories?.filter((item: any) => {

@@ -12,17 +12,11 @@ export default function HomePage() {
 
 
   useEffect(() => {
-    setIsLoading(true)
-    const timeout = setTimeout(() => { setIsLoading(false) }, 3000)
-    return () => {
-      clearTimeout(timeout)
       axios.get('https://menu-back.prolabagency.com/api/v1/category/')
         .then((res) => setCategory(res.data))
         .catch((error) => {
           console.error('Произошла ошибка при получении данных:', error);
         });
-    }
-
   }, [])
 
   return (
