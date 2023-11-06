@@ -4,24 +4,32 @@ import React, { useState } from 'react'
 
 type Props = {
   item: any,
-  foods:any[],
-  setFoods:any
+  foods: any[],
+  setFoods: any
 }
 
 export const FoodCard = ({ item, foods, setFoods }: Props) => {
 
+  const decreaseCount = (foodId: any) => {
+    setFoods((prevFood: any) => prevFood.map((fod: any) =>
+      fod.id === foodId ?
+        { ...fod, count: fod.count - 1 }
+        :
+        fod
+    ))
 
-  const [count, setCount] = useState(item.count)
-
-
-  const decreaseCount = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
+    localStorage.setItem('food', JSON.stringify(foods));
   };
 
-  const increaseCount = () => {
-    setCount(count + 1);
+  const increaseCount = (foodId: any) => {
+    setFoods((prevFood: any) => prevFood.map((fod: any) =>
+      fod.id === foodId ?
+        { ...fod, count: fod.count + 1 }
+        :
+        fod
+    ))
+
+    localStorage.setItem('food', JSON.stringify(foods));
   };
 
   const handleDelete = (item: any) => {
@@ -41,13 +49,13 @@ export const FoodCard = ({ item, foods, setFoods }: Props) => {
             {item.title}
           </div>
           <div className="count__cardFood flex items-center mt-[12px]">
-            <div className="left__arrow cursor-pointer" onClick={decreaseCount}>
+            <div className="left__arrow cursor-pointer" onClick={()=> decreaseCount(item.id)}>
               <LeftArrow />
             </div>
             <div className="leftFood__count text-white">
-              {count}
+              {item.count}
             </div>
-            <div className="left__arrow cursor-pointer" onClick={increaseCount}>
+            <div className="left__arrow cursor-pointer" onClick={()=> increaseCount(item.id)}>
               <RightArrow />
             </div>
             <div className="count__name text-white ml-[12px]">
@@ -55,7 +63,7 @@ export const FoodCard = ({ item, foods, setFoods }: Props) => {
             </div>
           </div>
         </div>
-        <div className="delete__food absolute right-[0]  cursor-pointer" onClick={()=>handleDelete(item)}>
+        <div className="delete__food absolute right-[0]  cursor-pointer" onClick={() => handleDelete(item)}>
           <Deletefood />
         </div>
       </div>

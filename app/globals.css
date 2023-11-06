@@ -21,6 +21,12 @@
   overflow: hidden;
 }
 
+.loader__main img{
+  
+  width: 250px !important;
+  height: 200px !important;
+}
+
 .Inside {
   padding: 0 16px;
 }

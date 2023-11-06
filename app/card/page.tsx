@@ -20,7 +20,6 @@ const Card = () => {
 
     if (foodData) {
       const parsedFoodData = JSON.parse(foodData);
-
       setFoods(parsedFoodData);
     }
 
@@ -28,7 +27,7 @@ const Card = () => {
 
   const clearStorage = () => {
     localStorage.clear(),
-    setFoods([]);
+      setFoods([]);
     localStorage.setItem('food', JSON.stringify([]));
   }
 
@@ -69,7 +68,7 @@ const Card = () => {
                         {t("empty")}
                       </div>
                       <div className="smach text-white max-w-[205px] text-center mt-[9px]">
-                       {t("choose")}
+                        {t("choose")}
                       </div>
                       <Link href='/'>
                         <div className="clear__btn mt-[32px]">

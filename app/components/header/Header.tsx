@@ -1,3 +1,4 @@
+'use client'
 import { Card, Search } from '@/app/assets/Svg'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -11,23 +12,7 @@ interface Props {
 }
 
 export const Header = ({ searchQuery, setSearchQuery }: Props) => {
-    const [food, setFood] = useState([])
-
-
     const { t } = useTranslation()
-
-
-    useEffect(() => {
-        const foodData = localStorage.getItem('food');
-
-        if (foodData) {
-            const parsedFoodData = JSON.parse(foodData);
-            setFood(parsedFoodData);
-        } else {
-            setFood([])
-        }
-    }, [])
-
 
     return (
         <div className='Header'>
