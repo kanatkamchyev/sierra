@@ -30,7 +30,7 @@ export const Header = ({ searchQuery, setSearchQuery }: Props) => {
                     </div>
                     <div className="right__header">
                         <Link href='card'>
-                            <div className="card__header">
+                            <div className="card__header cursor-pointer">
                                 <Card />
                             </div>
                         </Link>

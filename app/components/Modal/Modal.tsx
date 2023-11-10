@@ -2,22 +2,24 @@ import { Deletefood } from '@/app/assets/Svg'
 import { t } from 'i18next'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { Button } from '../addButton'
 
 
 interface Props {
-    food: any,
+    currentImage: any,
     active: any,
     setActive: any,
-    getSostav:any,
-    getDescription:any
+    getSostav: any,
+    getDescription: any,
+    count: number
 }
 
-export const Modal = ({ food, getDescription, active, setActive,getSostav }: Props) => {
+export const Modal = ({ count, currentImage, getDescription, active, setActive, getSostav }: Props) => {
 
     useEffect(() => {
-        if(active){
+        if (active) {
             document.body.style.overflowY = 'hidden';
-        }else{
+        } else {
             document.body.style.overflowY = 'hidden';
         }
     })
@@ -33,22 +35,25 @@ export const Modal = ({ food, getDescription, active, setActive,getSostav }: Pro
                             </div>
                             <div className="Modal__title mt-[24px]">
                                 {
-                                    food.title
+                                    currentImage.title
                                 }
                             </div>
                             <div className="Modal__image">
-                                <Image width='200' height='200' src={food.img} alt="" />
+                                <Image width='200' height='200' src={currentImage.img} alt="" />
                             </div>
                             <div className="Modal__describe text-white text-[16px] mt-[16px]">
                                 {t("food_describe")}:
                             </div>
-                            <div className="Modal__describe text-white text-[16px] mt-[8px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getDescription(food) }}>
+                            <div className="Modal__describe text-white text-[16px] mt-[8px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getDescription(currentImage) }}>
                             </div>
                             <div className="Modal__ingredients text-white text-[16px] mt-[16px]">
                                 {t('sostav')}:
                             </div>
-                            <div className="Modal__ingredients text-white text-[16px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getSostav(food) }}>
+                            <div className="Modal__ingredients text-white text-[16px] pl-[6px]" dangerouslySetInnerHTML={{ __html: getSostav(currentImage) }}>
 
+                            </div>
+                            <div className="addModalBtn mt-[40px] flex justify-center">
+                                <Button count={count} currentImage={currentImage} />
                             </div>
                         </div>
                     </div>

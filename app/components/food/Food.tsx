@@ -1,4 +1,4 @@
-import { LeftArrow, Star, RightArrow, Yellow } from '@/app/assets/Svg'
+import { LeftArrow, RightArrow, Yellow } from '@/app/assets/Svg'
 import React, { useEffect, useState, useMemo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import { Modal } from '../Modal/Modal'
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import i18n from '@/app/i18';
+import { Button } from '../addButton';
 
 
 type Props = {
@@ -25,8 +25,8 @@ type Mores = {
     description_ky: string,
     price: number,
     sostav: string,
-    sostav_ky:string,
-    sostav_ru:string,
+    sostav_ky: string,
+    sostav_ru: string,
 }
 
 
@@ -60,29 +60,6 @@ export const Food = ({ item }: Props) => {
         setAddedToCart(false)
 
     };
-
-    const AddToCard = (food: any) => {
-        const storedFood = localStorage.getItem('food');
-        let existingFood = storedFood ? JSON.parse(storedFood) : [];
-
-        const existingFoodIndex = existingFood.findIndex((item: any) => item.title === food.title);
-        const updatedFoodData = {
-            id: food.id,
-            img: food.img,
-            title: food.title,
-            price: food.price,
-            count: count,
-        };
-
-        if (existingFoodIndex !== -1) {
-            existingFood[existingFoodIndex] = updatedFoodData;
-        } else {
-            existingFood.push(updatedFoodData);
-        }
-        localStorage.setItem('food', JSON.stringify(existingFood));
-        setAddedToCart(true);
-    }
-
     const { foods } = item
 
     const [currentImage, setCurrentImage] = useState<Mores>({
@@ -126,7 +103,7 @@ export const Food = ({ item }: Props) => {
         }
     }
 
-     const getSostav = (obj: any) => {
+    const getSostav = (obj: any) => {
         switch (i18n.language) {
             case 'kg':
                 return obj?.sostav_ky ? obj?.sostav_ky : obj?.sostav_ru;
@@ -142,7 +119,7 @@ export const Food = ({ item }: Props) => {
             <div className="container">
                 {
                     active ?
-                        <Modal getDescription={getDescription} getSostav={getSostav} food={currentImage} active={active} setActive={setActive} /> :
+                        <Modal getDescription={getDescription} getSostav={getSostav} currentImage={currentImage} active={active} setActive={setActive} count={count} /> :
                         null
                 }
                 <div className="food__inside">
@@ -157,6 +134,7 @@ export const Food = ({ item }: Props) => {
                     modules={[Navigation, Pagination]}
                     onSlideChange={(swiper) => {
                         setAddedToCart(false)
+                        setCount(1)
                         const activeFood = item.foods[swiper.activeIndex];
                         if (activeFood) {
                             const firstPhoto = activeFood.photos[0];
@@ -180,8 +158,8 @@ export const Food = ({ item }: Props) => {
                         <SwiperSlide key={food.id}>
                             {food.photos.map((image: any) => (
                                 <div className="image__root flex justify-center" key={image.id}>
-                                    <Image layout="responsive"  width={120} height={120} src={image.photo} alt="" />
-                                </div>  
+                                    <Image layout="responsive" width={120} height={120} src={image.photo} alt="" />
+                                </div>
                             ))}
                         </SwiperSlide>
                     ))}
@@ -203,7 +181,7 @@ export const Food = ({ item }: Props) => {
                         {currentImage.price} сом
                     </div>
                     <div className="food__take flex justify-center mt-[20px] items-center gap-[16px]">
-                        <div className="left__take flex items-center">
+                        <div className="left__take flex items-center gap-[7px]">
                             <div className="left__arrow cursor-pointer" onClick={decreaseCount}>
                                 <LeftArrow />
                             </div>
@@ -214,13 +192,7 @@ export const Food = ({ item }: Props) => {
                                 <RightArrow />
                             </div>
                         </div>
-                        <div className="right__take flex ">
-                            {addedToCart ? (
-                                <button className='btn flex gap-[8px] text-center' disabled>{t('added')}</button>
-                            ) : (
-                                <button className='flex gap-[8px] text-center' onClick={() => AddToCard(currentImage)}>{t("add")} <Star /></button>
-                            )}
-                        </div>
+                       <Button addedToCart={addedToCart} setAddedToCart={setAddedToCart} currentImage={currentImage} count={count}/>
                     </div>
                 </div>
             </div>
