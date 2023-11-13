@@ -119,7 +119,7 @@ export const Food = ({ item }: Props) => {
             <div className="container">
                 {
                     active ?
-                        <Modal getDescription={getDescription} getSostav={getSostav} currentImage={currentImage} active={active} setActive={setActive} count={count} /> :
+                        <Modal addedToCart={addedToCart} setAddedToCart={setAddedToCart} getDescription={getDescription} getSostav={getSostav} currentImage={currentImage} active={active} setActive={setActive} count={count} /> :
                         null
                 }
                 <div className="food__inside">

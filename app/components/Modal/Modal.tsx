@@ -6,6 +6,8 @@ import { Button } from '../addButton'
 
 
 interface Props {
+    addedToCart:any,
+    setAddedToCart:any,
     currentImage: any,
     active: any,
     setActive: any,
@@ -14,7 +16,7 @@ interface Props {
     count: number
 }
 
-export const Modal = ({ count, currentImage, getDescription, active, setActive, getSostav }: Props) => {
+export const Modal = ({addedToCart, setAddedToCart, count, currentImage, getDescription, active, setActive, getSostav }: Props) => {
 
     useEffect(() => {
         if (active) {
@@ -53,7 +55,7 @@ export const Modal = ({ count, currentImage, getDescription, active, setActive, 
 
                             </div>
                             <div className="addModalBtn mt-[40px] flex justify-center">
-                                <Button count={count} currentImage={currentImage} />
+                                <Button setAddedToCart={setAddedToCart} addedToCart={addedToCart} count={count} currentImage={currentImage} />
                             </div>
                         </div>
                     </div>
