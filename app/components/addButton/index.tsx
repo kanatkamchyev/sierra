@@ -38,7 +38,7 @@ export const Button = ({ count, addedToCart, setAddedToCart, currentImage }: Pro
             {addedToCart ? (
                 <button className='btn flex gap-[8px] text-center cursor-pointer' disabled>{t('added')}</button>
             ) : (
-                <button className='flex gap-[8px] text-center cursor-pointer' onClick={() => AddToCard(currentImage)}>{t("add")} <Star /></button>
+                <button className='flex items-center gap-[8px] text-center cursor-pointer' onClick={() => AddToCard(currentImage)}>{t("add")} <Star /></button>
             )}
         </div>
     )
