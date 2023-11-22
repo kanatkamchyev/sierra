@@ -7,7 +7,6 @@ import './globals.css'
 import axios from 'axios'
 
 export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(false)
   const [category, setCategory] = useState([])
 
 

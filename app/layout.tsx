@@ -56,7 +56,6 @@ export default function RootLayout({
                 <div className="home__page__load">
                   <Loader />
                 </div>
-
               </div>
             </div>
               :
